@@ -22,7 +22,8 @@
     .btn-secondary{background:var(--sage);color:var(--hazel)}
     .badge{display:inline-block;font-size:12px;padding:6px 12px;border-radius:999px;background:var(--sand);border:1px solid #E8D8CC;color:#5A4F4B;margin-right:8px;margin-bottom:8px}
     header{padding:40px 0 12px}
-    header .logo{width:48px;height:48px;border-radius:16px;background:var(--rose);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#fff;font-weight:700}
+    /* .logo removível, não usada mais */
+
     h1{font-size:22px;margin:0 0 4px}
     p{margin:0}
     .grid{display:grid;gap:12px}
@@ -41,6 +42,21 @@
     .bar-inner{max-width:960px;width:100%;display:flex;gap:8px;pointer-events:auto;background:rgba(255,255,255,.9);backdrop-filter:saturate(130%) blur(6px);border:1px solid #E8D8CC;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:10px}
     .bar .btn{flex:1}
     .btn:focus{outline:3px solid color-mix(in srgb, var(--rose) 50%, white);outline-offset:2px}
+
+    /* ===== Avatar com anel rosa (novo) ===== */
+    .avatar{
+      width:56px;height:56px;border-radius:50%;
+      border:3px solid var(--rose);               /* anel rosa (anel 1) */
+      box-shadow:0 0 0 4px rgba(196,141,155,.18); /* anel 2 suave externo */
+      overflow:hidden;background:#fff;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .avatar .initials{
+      display:none;width:100%;height:100%;
+      align-items:center;justify-content:center;
+      background:var(--rose);color:#fff;font-weight:700;
+    }
   </style>
 
   <!-- SOMENTE META PIXEL (ID fixado) -->
@@ -62,7 +78,13 @@
 <body>
   <header class="container">
     <div style="display:flex;align-items:center;gap:12px">
-      <div class="logo" aria-hidden>DM</div>
+      <!-- TROCA do 'DM' por avatar -->
+      <div class="avatar" title="Dra. Mariana">
+        <img src="images/avatar.jpg" alt="Foto da Dra. Mariana"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.initials').style.display='flex';">
+        <span class="initials">DM</span>
+      </div>
+
       <div>
         <h1 class="title" style="color:var(--hazel)">Dra. Mariana • Harmonização com alma</h1>
         <p class="muted">Beleza natural para mulheres que não querem parecer que fizeram.</p>
@@ -189,10 +211,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
